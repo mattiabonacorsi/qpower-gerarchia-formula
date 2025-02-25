@@ -1,0 +1,162 @@
+2025-02-24 17:48:01.826 [main] INFO  org.example.Tracer - Starting trace for code: CON0140
+2025-02-24 17:49:35.236 [main] INFO  org.example.Tracer - Starting trace for code: CON0140
+2025-02-24 17:58:21.809 [main] INFO  org.example.Tracer - Starting trace for code: KPI0001
+2025-02-25 09:01:28.534 [main] INFO  org.example.Tracer - Starting trace for code: KPI0001
+2025-02-25 09:25:42.186 [main] INFO  org.example.Tracer - Starting trace for code: KPI0001
+2025-02-25 09:28:43.884 [main] INFO  org.example.Tracer - Starting trace for code: KPI0002
+2025-02-25 09:29:13.412 [main] INFO  org.example.Tracer - Starting trace for code: KPI0004
+2025-02-25 09:29:54.438 [main] INFO  org.example.Tracer - Starting trace for code: CON0140
+2025-02-25 09:36:36.185 [main] INFO  org.example.Tracer - Starting trace for code: CON0140
+2025-02-25 09:53:00.116 [main] INFO  org.example.Tracer - Starting trace for code: CON0140
+2025-02-25 09:57:03.284 [main] INFO  org.example.Tracer - Starting trace for code: CON0140
+2025-02-25 09:59:45.175 [main] INFO  org.example.Tracer - Starting trace for code: CON0140
+2025-02-25 10:00:01.388 [main] INFO  org.example.Tracer - Starting trace for code: KPI0001
+2025-02-25 10:05:02.840 [main] INFO  org.example.Tracer - Starting trace for code: KPI0002
+2025-02-25 10:07:29.451 [main] INFO  org.example.Tracer - Starting trace for code: KPI0002
+2025-02-25 10:10:10.297 [main] INFO  org.example.Tracer - Starting trace for code: KPI0001
+2025-02-25 10:14:25.966 [main] INFO  org.example.Tracer - Starting trace for code: KPI0001
+2025-02-25 10:14:58.880 [main] INFO  org.example.Tracer - Starting trace for code: KPI0001
+2025-02-25 10:15:36.416 [main] INFO  org.example.Tracer - Starting trace for code: KPI0001
+2025-02-25 10:26:12.730 [main] INFO  org.example.Tracer - Starting trace for code: CON0001
+2025-02-25 10:30:16.382 [main] INFO  org.example.Tracer - Starting trace for code: IDX_CO2
+2025-02-25 10:46:21.171 [main] INFO  org.example.Tracer - Starting trace for code: KPI0001
+2025-02-25 10:59:51.402 [main] INFO  org.example.Tracer - Starting trace for code: KPI0001
+2025-02-25 11:32:48.745 [main] INFO  org.example.Tracer - Starting trace for code: KPI0001
+2025-02-25 11:32:48.879 [main] ERROR org.example.utils.DatabaseUtils - Error fetching entity info for code: IDX_CO2
+com.microsoft.sqlserver.jdbc.SQLServerException: Invalid column name 'nome'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:265)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1662)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:615)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:537)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7417)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:3488)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:262)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:237)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeQuery(SQLServerPreparedStatement.java:456)
+	at org.example.utils.DatabaseUtils.getEntityInfo(DatabaseUtils.java:60)
+	at org.example.Tracer.processSingleFormula(Tracer.java:87)
+	at org.example.Tracer.lambda$processEntityDependencies$0(Tracer.java:75)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at org.example.Tracer.processEntityDependencies(Tracer.java:65)
+	at org.example.Tracer.findDependencies(Tracer.java:57)
+	at org.example.Tracer.tracer(Tracer.java:41)
+	at org.example.Main.main(Main.java:12)
+2025-02-25 11:32:48.882 [main] ERROR org.example.Tracer - Error tracing dependencies for code: KPI0001
+org.example.utils.DatabaseException: Failed to fetch entity info
+	at org.example.utils.DatabaseUtils.getEntityInfo(DatabaseUtils.java:70)
+	at org.example.Tracer.processSingleFormula(Tracer.java:87)
+	at org.example.Tracer.lambda$processEntityDependencies$0(Tracer.java:75)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at org.example.Tracer.processEntityDependencies(Tracer.java:65)
+	at org.example.Tracer.findDependencies(Tracer.java:57)
+	at org.example.Tracer.tracer(Tracer.java:41)
+	at org.example.Main.main(Main.java:12)
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Invalid column name 'nome'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:265)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1662)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:615)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:537)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7417)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:3488)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:262)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:237)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeQuery(SQLServerPreparedStatement.java:456)
+	at org.example.utils.DatabaseUtils.getEntityInfo(DatabaseUtils.java:60)
+	... 7 common frames omitted
+2025-02-25 11:36:24.977 [main] INFO  org.example.Tracer - Starting trace for code: KPI0001
+2025-02-25 11:36:25.111 [main] ERROR org.example.utils.DatabaseUtils - Error fetching entity info for code: IDX_CO2
+com.microsoft.sqlserver.jdbc.SQLServerException: Invalid column name 'nome'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:265)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1662)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:615)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:537)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7417)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:3488)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:262)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:237)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeQuery(SQLServerPreparedStatement.java:456)
+	at org.example.utils.DatabaseUtils.getEntityInfo(DatabaseUtils.java:60)
+	at org.example.Tracer.processSingleFormula(Tracer.java:87)
+	at org.example.Tracer.lambda$processEntityDependencies$0(Tracer.java:75)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at org.example.Tracer.processEntityDependencies(Tracer.java:65)
+	at org.example.Tracer.findDependencies(Tracer.java:57)
+	at org.example.Tracer.tracer(Tracer.java:41)
+	at org.example.Main.main(Main.java:12)
+2025-02-25 11:36:25.115 [main] ERROR org.example.Tracer - Error tracing dependencies for code: KPI0001
+org.example.utils.DatabaseException: Failed to fetch entity info
+	at org.example.utils.DatabaseUtils.getEntityInfo(DatabaseUtils.java:68)
+	at org.example.Tracer.processSingleFormula(Tracer.java:87)
+	at org.example.Tracer.lambda$processEntityDependencies$0(Tracer.java:75)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at org.example.Tracer.processEntityDependencies(Tracer.java:65)
+	at org.example.Tracer.findDependencies(Tracer.java:57)
+	at org.example.Tracer.tracer(Tracer.java:41)
+	at org.example.Main.main(Main.java:12)
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Invalid column name 'nome'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:265)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1662)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:615)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:537)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7417)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:3488)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:262)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:237)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeQuery(SQLServerPreparedStatement.java:456)
+	at org.example.utils.DatabaseUtils.getEntityInfo(DatabaseUtils.java:60)
+	... 7 common frames omitted
+2025-02-25 11:40:07.421 [main] INFO  org.example.Tracer - Starting trace for code: KPI0001
+2025-02-25 11:55:31.722 [main] INFO  org.example.Tracer - Starting trace for code: KPI0001
+2025-02-25 11:55:31.853 [main] ERROR org.example.utils.DatabaseUtils - Error executing query: SELECT nome FROM indice WHERE codiceProgressivo = ? with param: IDX_CO2
+com.microsoft.sqlserver.jdbc.SQLServerException: Invalid column name 'nome'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:265)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1662)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:615)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:537)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7417)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:3488)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:262)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:237)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeQuery(SQLServerPreparedStatement.java:456)
+	at org.example.utils.DatabaseUtils.executeQuery(DatabaseUtils.java:95)
+	at org.example.utils.DatabaseUtils.getEntityName(DatabaseUtils.java:89)
+	at org.example.Tracer.processSingleFormula(Tracer.java:77)
+	at org.example.Tracer.lambda$processEntityDependencies$0(Tracer.java:67)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at org.example.Tracer.processEntityDependencies(Tracer.java:57)
+	at org.example.Tracer.findDependencies(Tracer.java:49)
+	at org.example.Tracer.tracer(Tracer.java:33)
+	at org.example.Main.main(Main.java:12)
+2025-02-25 11:55:31.857 [main] ERROR org.example.Tracer - Error tracing dependencies for code: KPI0001
+org.example.utils.DatabaseException: Failed to execute query
+	at org.example.utils.DatabaseUtils.executeQuery(DatabaseUtils.java:102)
+	at org.example.utils.DatabaseUtils.getEntityName(DatabaseUtils.java:89)
+	at org.example.Tracer.processSingleFormula(Tracer.java:77)
+	at org.example.Tracer.lambda$processEntityDependencies$0(Tracer.java:67)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at org.example.Tracer.processEntityDependencies(Tracer.java:57)
+	at org.example.Tracer.findDependencies(Tracer.java:49)
+	at org.example.Tracer.tracer(Tracer.java:33)
+	at org.example.Main.main(Main.java:12)
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Invalid column name 'nome'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:265)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1662)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:615)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:537)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7417)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:3488)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:262)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:237)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeQuery(SQLServerPreparedStatement.java:456)
+	at org.example.utils.DatabaseUtils.executeQuery(DatabaseUtils.java:95)
+	... 8 common frames omitted
+2025-02-25 11:56:04.136 [main] INFO  org.example.Tracer - Starting trace for code: CON0140
+2025-02-25 11:58:33.644 [main] INFO  org.example.Tracer - Starting trace for code: KPI0001
+2025-02-25 12:00:08.781 [main] INFO  org.example.Tracer - Starting trace for code: IDX0484
+2025-02-25 12:00:27.217 [main] INFO  org.example.Tracer - Starting trace for code: KPI0001
+2025-02-25 14:15:05.776 [main] INFO  org.example.Tracer - Starting trace for code: KPI0006
+2025-02-25 14:15:27.523 [main] INFO  org.example.Tracer - Starting trace for code: KPI007
+2025-02-25 14:15:45.478 [main] INFO  org.example.Tracer - Starting trace for code: KPI0006
+2025-02-25 14:17:41.456 [main] INFO  org.example.Tracer - Starting trace for code: KPI0007
+2025-02-25 14:17:55.914 [main] INFO  org.example.Tracer - Starting trace for code: KPI006
+2025-02-25 14:18:06.834 [main] INFO  org.example.Tracer - Starting trace for code: KPI0006
