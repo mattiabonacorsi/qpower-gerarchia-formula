@@ -4,10 +4,12 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
+        String inputVariable = "KPI0001";
         try (Connection conn = connection.getConnection()) {
             if (conn != null) {
-                System.out.println("Database connection successful!");
+                    Tracer t = new Tracer(conn);
+                    t.tracer(inputVariable);
             } else {
                 System.out.println("Failed to establish database connection.");
             }
