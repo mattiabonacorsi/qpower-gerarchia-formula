@@ -30,7 +30,13 @@ public class Tracer {
     }
 
     private void findDependencies(ResultDTO result, String codice, Set<String> visited) {
-        if (!shouldProcessDependency(codice, visited)) return;
+        if (!shouldProcessDependency(codice, visited)) {
+            // If we've seen this code before, mark it as circular
+            if (visited.contains(codice)) {
+                result.setCircular(true);
+            }
+            return;
+        }
         visited.add(codice);
 
         EntityType entityType = EntityType.fromCode(codice);

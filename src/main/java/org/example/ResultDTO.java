@@ -10,12 +10,18 @@ public class ResultDTO {
     private String nome;
     private List<ResultDTO> dipendoDa;
     private List<ResultDTO> servoPer;
+    private boolean isCircular;
 
     public ResultDTO(String codiceProgressivo, String nome) {
         this.codiceProgressivo = codiceProgressivo;
         this.nome = nome;
         this.dipendoDa = new ArrayList<>();
         this.servoPer = new ArrayList<>();
+        this.isCircular = false;
+    }
+
+    public void setCircular(boolean circular) {
+        this.isCircular = circular;
     }
 
     public List<ResultDTO> getDipendoDa() {
@@ -41,6 +47,9 @@ public class ResultDTO {
         result.append(indent).append(codiceProgressivo);
         if (nome != null && !nome.isEmpty()) {
             result.append(" - ").append(nome);
+        }
+        if (isCircular) {
+            result.append(" (part of circular dependency)");
         }
         result.append("\n");
         

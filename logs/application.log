@@ -160,3 +160,10 @@ Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Invalid column name 
 2025-02-25 14:17:41.456 [main] INFO  org.example.Tracer - Starting trace for code: KPI0007
 2025-02-25 14:17:55.914 [main] INFO  org.example.Tracer - Starting trace for code: KPI006
 2025-02-25 14:18:06.834 [main] INFO  org.example.Tracer - Starting trace for code: KPI0006
+2025-02-25 14:27:26.046 [main] INFO  org.example.Tracer - Starting trace for code: KPI0006
+2025-02-25 14:34:00.637 [main] INFO  org.example.Tracer - Starting trace for code: KPI0001
+2025-02-25 14:34:35.899 [main] INFO  org.example.Tracer - Starting trace for code: CON0140
+2025-02-25 15:35:05.004 [main] INFO  org.example.Tracer - Starting trace for code: KPI0006
+2025-02-25 15:48:22.262 [main] INFO  org.example.Tracer - Starting trace for code: KPI0006
+2025-02-25 15:50:43.059 [main] INFO  org.example.Tracer - Starting trace for code: KPI0006
+2025-02-25 16:13:32.038 [main] INFO  org.example.Tracer - Starting trace for code: KPI0006
