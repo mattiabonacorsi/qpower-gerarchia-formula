@@ -3,7 +3,7 @@ package org.example;
 import java.sql.*;
 import java.util.*;
 
-import org.example.model.*;
+import org.example.model.Formula;
 import org.example.utils.*;
 import org.slf4j.*;
 
@@ -17,7 +17,8 @@ public class Tracer {
 
     public void tracer(String codice) {
         logger.info("Starting trace for code: {}", codice);
-        ResultDTO result = new ResultDTO(codice);
+        String name = dbUtils.getEntityName(codice).orElse("");
+        ResultDTO result = new ResultDTO(codice, name);
         try {
             findDependencies(result, codice, new HashSet<>());
             findDependents(result, codice, new HashSet<>());
@@ -63,7 +64,8 @@ public class Tracer {
         for (String dep : dependencies) {
             if (!allDependencies.contains(dep)) {
                 allDependencies.add(dep);
-                ResultDTO dependency = new ResultDTO(dep);
+                String name = dbUtils.getEntityName(dep).orElse("");
+                ResultDTO dependency = new ResultDTO(dep, name);
                 result.getDipendoDa().add(dependency);
                 findDependencies(dependency, dep, visited);
             }
@@ -94,8 +96,9 @@ public class Tracer {
         
         dbUtils.getCodeFromEntity(entityId, EntityType.fromDbValue(entityType))
             .ifPresent(dependentCode -> {
+                String name = dbUtils.getEntityName(dependentCode).orElse("");
                 if (!visited.contains(dependentCode)) {
-                    ResultDTO dependent = new ResultDTO(dependentCode);
+                    ResultDTO dependent = new ResultDTO(dependentCode, name);
                     result.getServoPer().add(dependent);
                     findDependents(dependent, dependentCode, visited);
                 }

@@ -66,12 +66,27 @@ public class DatabaseUtils {
     private String createCodeQuery(EntityType entityType) {
         return switch (entityType) {
             case KPI, KPI_NUMERATORE, KPI_DENOMINATORE -> 
-                "SELECT codiceProgressivo FROM kpi WHERE kpiId = ?";
+                "SELECT codiceProgressivo, nome FROM kpi WHERE kpiId = ?";
             case CONTATORE, ONERE_ELEMENTO -> 
-                "SELECT codiceProgressivo FROM contatore WHERE contatoreId = ?";
+                "SELECT codiceProgressivo, nome FROM contatore WHERE contatoreId = ?";
             case INDEX -> 
-                "SELECT codiceProgressivo FROM indice WHERE indiceId = ?";
+                "SELECT codiceProgressivo, nome FROM indice WHERE indiceId = ?";
         };
+    }
+    public Optional<String> getEntityName(String code) {
+        EntityType entityType = EntityType.fromCode(code);
+        if (entityType == null) return Optional.empty();
+
+        String query = switch (entityType) {
+            case KPI, KPI_NUMERATORE, KPI_DENOMINATORE -> 
+                "SELECT nome FROM kpi WHERE codiceProgressivo = ?";
+            case CONTATORE, ONERE_ELEMENTO -> 
+                "SELECT nome FROM contatore WHERE codiceProgressivo = ?";
+            case INDEX -> 
+                "SELECT nomeCompleto FROM indice WHERE codiceProgressivo = ?";
+        };
+
+        return executeQuery(query, code);
     }
 
     private Optional<String> executeQuery(String query, String param) {
