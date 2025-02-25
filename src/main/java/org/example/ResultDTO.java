@@ -1,7 +1,9 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ResultDTO {
     private String codiceProgressivo;
@@ -24,25 +26,32 @@ public class ResultDTO {
 
     @Override
     public String toString() {
+        return buildString("", new HashSet<>());
+    }
+
+    private String buildString(String indent, Set<String> visited) {
+        if (visited.contains(codiceProgressivo)) {
+            return indent + codiceProgressivo + " (circular reference)\n";
+        }
+        visited.add(codiceProgressivo);
+        
         StringBuilder result = new StringBuilder();
-        result.append(codiceProgressivo).append("\n");
-        result.append("dipende da: \n");
+        result.append(indent).append(codiceProgressivo).append("\n");
+        
         if (!dipendoDa.isEmpty()) {
+            result.append(indent).append("dipende da:\n");
             for (ResultDTO dto : dipendoDa) {
-                result.append("-").append(dto.codiceProgressivo).append(" ");
+                result.append(indent).append("-").append(dto.buildString(indent + " ", new HashSet<>(visited)));
             }
-        } else {
-            result.append("None");
         }
-        result.append("\n");
-        result.append("serve per:\n ");
+        
         if (!servoPer.isEmpty()) {
+            result.append(indent).append("serve per:\n");
             for (ResultDTO dto : servoPer) {
-                result.append(dto.codiceProgressivo).append(" ");
+                result.append(indent).append("-").append(dto.buildString(indent + " ", new HashSet<>(visited)));
             }
-        } else {
-            result.append("None");
         }
+        
         return result.toString();
     }
 }

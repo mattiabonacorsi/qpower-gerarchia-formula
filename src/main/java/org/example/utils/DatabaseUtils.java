@@ -1,12 +1,16 @@
 package org.example.utils;
 
-import org.example.model.Formula;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import org.example.model.Formula;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DatabaseUtils {
     private static final Logger logger = LoggerFactory.getLogger(DatabaseUtils.class);
@@ -55,7 +59,7 @@ public class DatabaseUtils {
             case CONTATORE, ONERE_ELEMENTO -> 
                 "SELECT contatoreId FROM contatore WHERE codiceProgressivo = ?";
             case INDEX -> 
-                "SELECT indiceId FROM indici WHERE codiceProgressivo = ?";
+                "SELECT indiceId FROM indice WHERE codiceProgressivo = ?";
         };
     }
 
@@ -66,7 +70,7 @@ public class DatabaseUtils {
             case CONTATORE, ONERE_ELEMENTO -> 
                 "SELECT codiceProgressivo FROM contatore WHERE contatoreId = ?";
             case INDEX -> 
-                "SELECT codiceProgressivo FROM indici WHERE indiceId = ?";
+                "SELECT codiceProgressivo FROM indice WHERE indiceId = ?";
         };
     }
 
